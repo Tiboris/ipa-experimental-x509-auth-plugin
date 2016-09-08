@@ -1,6 +1,6 @@
 Summary:            A plugin which handles experimental authentication with user certificate/smart card
 Name:               ipa-experimental-x509-auth-plugin
-Version:            1.0
+Version:            1.1
 Release:            1%{?dist}
 BuildArch:          noarch
 
@@ -27,7 +27,7 @@ The plugin into FreeIPA UI. It adds a button into interface and a configuration 
 mkdir -p %{buildroot}%{_usr}/share/ipa/ui/js/plugins/ipa-experimental-x509-auth-plugin %{buildroot}%{_sysconfdir}/httpd/conf.d %{buildroot}%{_sbindir}
 install ipa-experimental-x509-auth-plugin.js %{buildroot}%{_usr}/share/ipa/ui/js/plugins/ipa-experimental-x509-auth-plugin/ipa-experimental-x509-auth-plugin.js
 install xx-ipa-experimental-x509-auth.conf %{buildroot}%{_sysconfdir}/httpd/conf.d/xx-ipa-experimental-x509-auth.conf
-install post-install.sh %{buildroot}%{_sbindir}/ipa-experimental-x509-auth-enable
+install post-install.py %{buildroot}%{_sbindir}/ipa-experimental-x509-auth-enable
 
 %files
 %{_usr}/share/ipa/ui/js/plugins/ipa-experimental-x509-auth-plugin/ipa-experimental-x509-auth-plugin.js
@@ -38,5 +38,7 @@ install post-install.sh %{buildroot}%{_sbindir}/ipa-experimental-x509-auth-enabl
 %{_sbindir}/ipa-experimental-x509-auth-enable
 
 %changelog
+* Wed Aug 24 2016 Tiboris <tibor.dudlak@gmail.com>
+- Changed post-install shell script to python script
 * Thu Aug 11 2016 Tiboris <tibor.dudlak@gmail.com>
 - Created
