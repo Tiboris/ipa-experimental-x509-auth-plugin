@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 from shutil import copyfile
 from subprocess import call
 from os import sys
@@ -19,17 +19,16 @@ def run(*cmd_params):
     ret = 0
     try:
         cmd = cmd_params[0]
-        print(cmd)
         ret = call(cmd_params)
     except Exception as e:
-        print("Execution of " + cmd + " failed: " + str(e), file=sys.stderr)
+        sys.stderr.write("Execution of " + cmd + " failed: " + str(e))
         ret = -1
     return ret
 
 
 def configure_sssd():
 
-    copyfile(conf, orig.conf+'.orig')
+    copyfile(sssd_conf, sssd_conf + '.orig')
 
     config_handle = SSSDConfig.SSSDConfig()
     config_handle.import_config(sssd_conf)

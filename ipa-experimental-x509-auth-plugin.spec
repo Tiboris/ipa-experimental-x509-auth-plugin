@@ -1,6 +1,6 @@
 Summary:            A plugin which handles experimental authentication with user certificate/smart card
 Name:               ipa-experimental-x509-auth-plugin
-Version:            1.1
+Version:            1.2
 Release:            1%{?dist}
 BuildArch:          noarch
 
@@ -38,6 +38,8 @@ install post-install.py %{buildroot}%{_sbindir}/ipa-experimental-x509-auth-enabl
 %{_sbindir}/ipa-experimental-x509-auth-enable
 
 %changelog
+* Wed Sep 08 2016 Tiboris <tibor.dudlak@gmail.com>
+- Fixed bug with python version and typos
 * Wed Aug 24 2016 Tiboris <tibor.dudlak@gmail.com>
 - Changed post-install shell script to python script
 * Thu Aug 11 2016 Tiboris <tibor.dudlak@gmail.com>
